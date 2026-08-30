@@ -28,3 +28,12 @@ gemini:
   api-key: ${API_KEY}
   model: ${AI_MODEL}
   base-url: ${AI_URL}
+
+management:
+  endpoint:
+    health:
+      access: read_only
+  endpoints:
+    web:
+      exposure:
+        include: health

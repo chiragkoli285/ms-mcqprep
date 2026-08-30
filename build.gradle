@@ -23,6 +23,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     runtimeOnly 'org.postgresql:postgresql'
 
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
     // 🚀 FIX: Explicitly provides the ObjectMapper classes required by hypersistence-utils
     implementation 'com.fasterxml.jackson.core:jackson-databind'
 
