@@ -40,6 +40,6 @@ management:
 
 miniapp:
   local:
-    url: ${MINI_APP_LOCAL_URL}
+    url: ${MINIAPP_LOCAL_URL}
   prod:
-    url: ocker{MINI_APP_PROD_URL}
+    url: ${MINIAPP_PROD_URL}
