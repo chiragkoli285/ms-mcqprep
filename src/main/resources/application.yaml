@@ -37,3 +37,9 @@ management:
     web:
       exposure:
         include: health
+
+miniapp:
+  local:
+    url: ${MINI_APP_LOCAL_URL}
+  prod:
+    url: ocker{MINI_APP_PROD_URL}
