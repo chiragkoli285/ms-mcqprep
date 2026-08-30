@@ -9,7 +9,7 @@ version = '0.0.1-SNAPSHOT'
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
+		languageVersion = JavaLanguageVersion.of(17)
 	}
 }
 
@@ -19,6 +19,26 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    runtimeOnly 'org.postgresql:postgresql'
+
+    // 🚀 FIX: Explicitly provides the ObjectMapper classes required by hypersistence-utils
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+    // 🚀 REPLACE spring-boot-starter-webflux WITH THIS IN SPRING BOOT 4+:
+    implementation 'org.springframework.boot:spring-boot-starter-webclient'
+
+    // 🚀 FIX: This triggers the Spring Boot auto-configuration for Flyway
+    implementation 'org.springframework.boot:spring-boot-starter-flyway'
+
+    // Flyway for versioned schema migrations
+    implementation 'org.flywaydb:flyway-core'
+    implementation 'org.flywaydb:flyway-database-postgresql' // required separately since Flyway 10+
+
+    // clean jsonb <-> Java mapping for your options/explanations columns
+    implementation 'io.hypersistence:hypersistence-utils-hibernate-71:3.15.2'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
